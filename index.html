@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript-dan 20 ta Test</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>JavaScript Bilimlarini Sinash Testi</h1>
+            <p>20 ta savol | Natijangiz ekranda va Google Sheets-da saqlanadi</p>
+        </header>
+
+        <!-- Step 1: Student Registration -->
+        <div id="start-screen" class="card">
+            <h2>O'quvchi ma'lumotlari</h2>
+            <form id="user-form">
+                <div class="form-group">
+                    <label for="fullname">Ism va Familiyangiz:</label>
+                    <input type="text" id="fullname" placeholder="Masalan: Ali Valiyev" required>
+                </div>
+                <div class="form-group">
+                    <label for="group">Guruh / Sinf:</label>
+                    <input type="text" id="group" placeholder="Masalan: Front-end 102" required>
+                </div>
+                <div class="form-group">
+                    <label for="sheet-url">Google Web App URL (Google Script linki):</label>
+                    <input type="url" id="sheet-url" value="https://script.google.com/macros/s/AKfycbzy9LavGhyWg3jI3LkjbhrdM0DM42wKCic5VtjcTxix_md0Uui3h90FN0in_up2oxJTmA/exec" placeholder="https://script.google.com/macros/s/.../exec">
+                    <small>Google Script linki avtomatik biriktirilgan.</small>
+                </div>
+                <button type="submit" class="btn btn-primary">Testni boshlash</button>
+            </form>
+        </div>
+
+        <!-- Step 2: Quiz Screen -->
+        <div id="quiz-screen" class="card hidden">
+            <div class="quiz-header">
+                <div class="quiz-info">
+                    <span>O'quvchi: <strong id="student-name-display"></strong></span>
+                    <span>Savol: <strong id="question-number">1</strong> / 20</span>
+                </div>
+                <div class="progress-bar-container">
+                    <div id="progress-bar" class="progress-bar"></div>
+                </div>
+            </div>
+
+            <div id="quiz-content">
+                <h3 id="question-text" class="question-text">Savol matni...</h3>
+                <div id="options-container" class="options-container">
+                    <!-- Options will be dynamically rendered -->
+                </div>
+            </div>
+
+            <div class="quiz-footer">
+                <button id="prev-btn" class="btn btn-secondary" disabled>Ortga</button>
+                <button id="next-btn" class="btn btn-primary">Keyingisi</button>
+                <button id="finish-btn" class="btn btn-success hidden">Testni yakunlash</button>
+            </div>
+        </div>
+
+        <!-- Step 3: Result Screen -->
+        <div id="result-screen" class="card hidden">
+            <h2>Test Natijasi</h2>
+            <div class="result-box">
+                <div class="score-circle">
+                    <span id="final-percentage">0%</span>
+                </div>
+                <div class="result-details">
+                    <p>O'quvchi: <strong id="res-name"></strong></p>
+                    <p>Guruh: <strong id="res-group"></strong></p>
+                    <p>To'g'ri javoblar: <strong id="res-correct" class="text-success">0</strong> / 20</p>
+                    <p>Noto'g'ri javoblar: <strong id="res-incorrect" class="text-danger">0</strong> / 20</p>
+                    <p>Baho: <strong id="res-grade"></strong></p>
+                </div>
+            </div>
+
+            <!-- Google Sheet Submission Status -->
+            <div id="sheet-status" class="status-box">
+                <div class="spinner hidden" id="sheet-spinner"></div>
+                <p id="status-text">Natija Google Sheet-ga yuborilmoqda...</p>
+            </div>
+
+            <button id="restart-btn" class="btn btn-primary">Qayta topshirish</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
