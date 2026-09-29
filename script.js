@@ -153,14 +153,14 @@ userForm.addEventListener("submit", (e) => {
     e.preventDefault();
     const fullname = document.getElementById("fullname").value.trim();
     const group = document.getElementById("group").value.trim();
-    const urlInput = document.getElementById("sheet-url").value.trim();
+    const urlInputEl = document.getElementById("sheet-url");
 
     if (!fullname || !group) return;
 
     studentInfo.fullname = fullname;
     studentInfo.group = group;
-    if (urlInput) {
-        googleScriptUrl = urlInput;
+    if (urlInputEl && urlInputEl.value.trim()) {
+        googleScriptUrl = urlInputEl.value.trim();
     }
 
     startScreen.classList.add("hidden");
